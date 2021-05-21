@@ -9,7 +9,7 @@
 import cv2
 
 # เปิด Video
-capVDO = cv2.VideoCapture(0)
+capVDO = cv2.VideoCapture("")
 
 # In Fedora: DIVX, XVID, MJPG, X264, WMV1, WMV2. (XVID is more preferable.
 # MJPG results in high size video. X264 gives very small size video)
