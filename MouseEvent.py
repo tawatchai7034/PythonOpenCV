@@ -1,9 +1,10 @@
 import cv2
+import  numpy
 # อ่านภาพ
 path = r"image/color.jpg"
 
 
-img = cv2.imread(path,-1)
+img = cv2.imread(path,1)
 
 def position(event,x,y,flags,param):
 
@@ -12,16 +13,23 @@ def position(event,x,y,flags,param):
     red = img[y,x,2]
 
     # แสดงตำแหน่งที่ mouse click
-    textposition = "(" + str(x) + "," + str(y) + ")"
+    # textposition = "(" + str(x) + "," + str(y) + ")"
 
     # แสดงสีตรงตำแหน่งที่ mouse click
-    textColor = "(" + str(red) + "," + str(green) +","+str(blue)+")"
+    # textColor = "(" + str(red) + "," + str(green) +","+str(blue)+")"
+
     # ถ้ามีการคลิ๊กซ้ายในจังหวะ DOWN
     if event == cv2.EVENT_LBUTTONDOWN:
 
-        cv2.putText(img, textColor, (x, y), 5,1,(0, 0,0), 1, cv2.LINE_AA)
-        cv2.putText(img, textposition, (x, y+30), 5, 1, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.imshow("Output",img)
+        # cv2.putText(img, textColor, (x, y), 5,1,(0, 0,0), 1, cv2.LINE_AA)
+        # cv2.putText(img, textposition, (x, y+30), 5, 1, (0, 0, 0), 1, cv2.LINE_AA)
+        # cv2.imshow("Output",img)
+
+        # แสดงสีตรงจุดที่คลิ๊ก
+        # สร้างอาร์เร ขนาด 300x300 จำนวน 3 สี ไม่สนใจเครื่องหมาย
+        imgColor = numpy.zeros([300,300,3],numpy.uint8)
+        imgColor[:] = [blue,green,red]
+        cv2.imshow("result",imgColor)
 
 # ปรับขนาดภาพ
 # imgResize = cv2.resize(img,(400,600))
