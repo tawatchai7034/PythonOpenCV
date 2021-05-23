@@ -8,6 +8,7 @@ kernel1 = np.ones((3,3),np.float32)/9
 kernel2 = np.ones((5,5),np.float32)/25
 
 # https://docs.opencv.org/master/d4/d13/tutorial_py_filtering.html
+# -1 = ให้อ้างอิงจากค่า Array ที่อยู่ img
 convolution_3x3 = cv2.filter2D(img,-1,kernel1)
 convolution_5x5 = cv2.filter2D(img,-1,kernel2)
 
